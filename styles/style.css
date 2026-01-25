@@ -353,8 +353,11 @@
             background: var(--primary-hover);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
+            body {
+                padding-top: 80px; /* Ajusta según la altura del header */
+            }
+
             .header-content {
                 flex-direction: column;
                 text-align: center;
