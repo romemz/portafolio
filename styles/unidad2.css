@@ -1,0 +1,179 @@
+/* Estilos generales para Unidad 2 */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header y Footer a todo lo ancho */
+header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+/* Contenedor principal con padding */
+.main-container {
+    padding: 2rem;
+}
+
+/* Contenedor de cards con mejor ajuste */
+.unit-card {
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.unit-card-content {
+    text-align: left;
+    padding: 0;
+}
+
+/* Títulos con iconos */
+.unit-card h3 i {
+    margin-right: 10px;
+}
+
+.icon-rocket { color: #667eea; }
+.icon-map { color: #f093fb; }
+.icon-code { color: #f093fb; }
+.icon-share { color: #4facfe; }
+.icon-laptop { color: #4facfe; }
+.icon-database { color: #43e97b; }
+.icon-table { color: #43e97b; }
+.icon-cloud { color: #fa709a; }
+.icon-terminal { color: #fa709a; }
+.icon-video { color: #feca57; }
+.icon-stream { color: #feca57; }
+.icon-check { color: #667eea; }
+
+/* Card de código especial */
+.code-card {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d30 100%);
+    border: 2px solid #3e3e42;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.code-card h3 {
+    color: #4ec9b0 !important;
+    margin-bottom: 1rem;
+}
+
+.code-card pre {
+    background: #0d0d0d;
+    border: 1px solid #3e3e42;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 0;
+    word-wrap: normal;
+    white-space: pre;
+}
+
+.code-card code {
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    display: block;
+    white-space: pre;
+}
+
+/* Scrollbar personalizado para código */
+.code-card pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.code-card pre::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 4px;
+}
+
+.code-card pre::-webkit-scrollbar-thumb {
+    background: #3e3e42;
+    border-radius: 4px;
+}
+
+.code-card pre::-webkit-scrollbar-thumb:hover {
+    background: #4e4e52;
+}
+
+/* Cards de diferente tamaño */
+.unit-card.small {
+    grid-column: span 1;
+}
+
+.unit-card.medium {
+    grid-column: span 1;
+}
+
+.unit-card.large {
+    grid-column: span 1;
+}
+
+/* Para pantallas grandes */
+@media (min-width: 768px) {
+    .unit-card.large {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+/* Ajustes para listas dentro de cards */
+.unit-card ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.unit-card li {
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+}
+
+/* Ajustes para párrafos */
+.unit-card p {
+    margin-bottom: 1rem;
+    word-break: break-word;
+}
+
+/* Ajustes para títulos */
+.unit-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    word-break: break-word;
+}
+
+.unit-card h4 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Enlaces en cards */
+.unit-card a {
+    word-break: break-all;
+}
+
+/* Botón de retorno */
+.btn-return {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer-copyright {
+    margin-top: 1rem;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2 - Portafolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../styles/style.css" rel="stylesheet">
+    <link href="../styles/unidad2.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="folderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD6E8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#C9E4FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M10 25 L40 25 L45 15 L90 15 L90 85 L10 85 Z" fill="url(#folderGradient)" stroke="#2C3E50" stroke-width="2"/>
+                    <path d="M10 35 L90 35" stroke="#2C3E50" stroke-width="2"/>
+                    <circle cx="30" cy="55" r="3" fill="#2C3E50"/>
+                    <circle cx="50" cy="55" r="3" fill="#2C3E50"/>
+                    <circle cx="70" cy="55" r="3" fill="#2C3E50"/>
+                </svg>
+                <div class="project-info">
+                    <h1>Portafolio de Evidencias</h1>
+                    <p>Jahir Eduardo Moroles Leija Y Rodrigo Méndez Rosas| 5DSMB | UTC</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="unidades.html">Unidades</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <section class="unit-content">
+            <div class="cards-container">
+                <!-- Card de introducción -->
+                <div class="unit-card wide">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-rocket icon-rocket"></i>Unidad 2: Implementación de API</h3>
+                        <p>Material y ejercicios para la implementación de APIs, además de tecnologías y servicios asociados (geolocalización, redes sociales, bases de datos, despliegue y streaming).</p>
+                        <h4>Objetivos de la unidad:</h4>
+                        <ul>
+                            <li>Diseñar endpoints RESTful con buenas prácticas de versionado y seguridad.</li>
+                            <li>Integrar servicios externos: geolocalización, redes sociales y plataformas en la nube.</li>
+                            <li>Seleccionar y usar la base de datos adecuada según el caso.</li>
+                            <li>Preparar la aplicación para despliegue en plataformas modernas y consumo de streaming.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Geolocalización: conceptos -->
+                <div class="unit-card large">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-map-marker-alt icon-map"></i>Geolocalización — conceptos</h3>
+                        <p>Uso de APIs y servicios para obtener coordenadas, resolver direcciones y ofrecer servicios basados en la ubicación del usuario o recursos.</p>
+                        <ul>
+                            <li><strong>Fuentes:</strong> Geolocation API (navegador), Google Maps Platform, OpenStreetMap/Nominatim.</li>
+                            <li><strong>Casos de uso:</strong> búsqueda local de servicios, ruteo, personalización por ubicación.</li>
+                            <li><strong>Consideraciones:</strong> permisos, precisión, consumo de cuotas y uso de HTTPS.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Geolocalización: ejemplo -->
+                <div class="unit-card code-card large">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-code icon-code"></i>Ejemplo: Geolocalización (JS)</h3>
+                        <pre><code>if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    function(pos) {
+      console.log('Lat:', pos.coords.latitude);
+      console.log('Lng:', pos.coords.longitude);
+    }, 
+    function(err) { 
+      console.error(err.message); 
+    }, 
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+} else {
+  console.error('Geolocation not supported');
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales: contenido -->
+                <div class="unit-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-share-alt icon-share"></i>Redes Sociales — integración</h3>
+                        <p>Conectar con APIs sociales para autenticación, publicación automática y monitorización de interacciones.</p>
+                        <ul>
+                            <li><strong>Mecanismo estándar:</strong> OAuth 2.0 para autorización segura.</li>
+                            <li><strong>Webhooks:</strong> recibir eventos en tiempo real (mensajes, publicaciones).</li>
+                            <li><strong>Manejo de límites:</strong> caching, backoff y reintentos controlados.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales: ejemplo -->
+                <div class="unit-card code-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-laptop-code icon-laptop"></i>Ejemplo: Publicar (pseudo)</h3>
+                        <pre><code>// POST /api/social/publish
+fetch('/api/social/publish', {
+  method: 'POST',
+  headers: { 
+    'Content-Type': 'application/json' 
+  },
+  body: JSON.stringify({ 
+    platform: 'twitter', 
+    text: 'Hola desde mi API' 
+  })
+})
+.then(r => r.json())
+.then(console.log)
+.catch(console.error);</code></pre>
+                    </div>
+                </div>
+
+                <!-- Bases de Datos: contenido -->
+                <div class="unit-card large">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-database icon-database"></i>Bases de Datos — selección</h3>
+                        <p>Elegir entre relacionales y NoSQL según necesidades de consistencia, consultas y escalabilidad.</p>
+                        <ul>
+                            <li><strong>Relacionales (Postgres, MySQL):</strong> integridad, transacciones y consultas complejas.</li>
+                            <li><strong>NoSQL (MongoDB, Redis):</strong> documentos, caches, alta disponibilidad y escalado horizontal.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bases de Datos: ejemplo SQL -->
+                <div class="unit-card code-card small">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-table icon-table"></i>Ejemplo: Tabla usuarios (Postgres)</h3>
+                        <pre><code>CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  created_at TIMESTAMP DEFAULT now()
+);</code></pre>
+                    </div>
+                </div>
+
+                <!-- Plataformas On-Line: contenido -->
+                <div class="unit-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-cloud-upload-alt icon-cloud"></i>Plataformas On-Line — despliegue</h3>
+                        <p>Servicios para despliegue rápido y escalado: Heroku, Vercel, Netlify, y proveedores cloud (AWS/Azure/GCP).</p>
+                        <ul>
+                            <li>Elección basada en control requerido, coste y facilidad de CI/CD.</li>
+                            <li>Serverless vs contenedores vs IaaS — decidir según latencia y estado.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Plataformas On-Line: ejemplo -->
+                <div class="unit-card code-card small">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-terminal icon-terminal"></i>Ejemplo: Despliegue rápido (Vercel)</h3>
+                        <pre><code>npm i -g vercel
+vercel login
+vercel --prod</code></pre>
+                    </div>
+                </div>
+
+                <!-- Plataformas Streaming: contenido -->
+                <div class="unit-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-video icon-video"></i>Plataformas Streaming — conceptos</h3>
+                        <p>Protocolos y desafíos para entrega de video/audio en vivo y bajo demanda.</p>
+                        <ul>
+                            <li><strong>RTMP:</strong> para ingestión de video.</li>
+                            <li><strong>HLS/DASH:</strong> para reproducción adaptativa.</li>
+                            <li><strong>Consideraciones:</strong> CDN, codificación, latencia, DRM y costes de ancho de banda.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Plataformas Streaming: ejemplo -->
+                <div class="unit-card code-card small">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-stream icon-stream"></i>Ejemplo: Flujo básico RTMP → HLS</h3>
+                        <pre><code># Flujo simplificado:
+# OBS (encoder) -> RTMP -> 
+# Media Server (Ej: Nginx RTMP) -> 
+# HLS chunks -> CDN -> Cliente</code></pre>
+                    </div>
+                </div>
+
+                <!-- Buenas prácticas -->
+                <div class="unit-card wide">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-check-circle icon-check"></i>Buenas prácticas de integración</h3>
+                        <ul>
+                            <li>Documentar APIs con OpenAPI/Swagger y mantener ejemplos actualizados.</li>
+                            <li>Asegurar endpoints con HTTPS, autenticación y autorización (OAuth2, JWT).</li>
+                            <li>Implementar pruebas: unitarias, integración y end-to-end (Postman, Newman).</li>
+                            <li>Monitoreo y logs centralizados (ELK, Prometheus, Grafana).</li>
+                        </ul>
+                        <h4>Recursos recomendados:</h4>
+                        <ul>
+                            <li><a href="https://swagger.io/" target="_blank">Swagger / OpenAPI</a></li>
+                            <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                            <li><a href="https://cloud.google.com/maps-platform" target="_blank">Google Maps Platform</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+               
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Rodrigo Mendez y Jahir Moroles</strong></p>
+        <p>Desarrollo de Software Multiplataforma | 5DSMB</p>
+        <p>Universidad Tecnológica de Coahuila</p>
+        <p>Desarrollo Web Orientado a Servicios | 5° Cuatrimestre 2025</p>
+        <p class="footer-copyright">© 2025 Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
