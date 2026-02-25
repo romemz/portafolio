@@ -8,6 +8,22 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link href="../styles/style.css" rel="stylesheet">
 <link href="../styles/unidad2.css" rel="stylesheet">
+<style>
+    .unit-content .code-card pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: hidden;
+    }
+
+    .unit-content .code-card code {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .unit-content .code-card h3 {
+        word-break: break-word;
+    }
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -72,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="unit-card code-card medium">
+                <div class="unit-card code-card wide">
                     <div class="unit-card-content">
                         <h3><i class="fas fa-code icon-code"></i>Ejemplo: API REST con Express</h3>
                         <pre><code>const express = require('express');
@@ -111,7 +127,7 @@ app.listen(3000, () => {
                     </div>
                 </div>
 
-                <div class="unit-card code-card medium">
+                <div class="unit-card code-card wide">
                     <div class="unit-card-content">
                         <h3><i class="fas fa-shield-alt icon-laptop"></i>Ejemplo: Seguridad básica con JWT (pseudo)</h3>
                         <pre><code>// Middleware de autenticación
