@@ -7,6 +7,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link href="../styles/style.css" rel="stylesheet">
+<link href="../styles/unidad2.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -44,9 +45,109 @@
     <!-- Main Content -->
     <div class="main-container">
         <section class="unit-content">
-            <div class="pdf-placeholder">
-                <i class="fas fa-file-pdf"></i>
-                <h4>Evidencia de Unidad 3</h4>
+            <div class="cards-container">
+                <div class="unit-card wide">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-cubes icon-rocket"></i>Unidad 3: Desarrollo de Aplicaciones Orientadas a Servicios</h3>
+                        <p>En esta unidad se identifican frameworks clave para construir aplicaciones orientadas a servicios y se describe el proceso completo para desarrollar una API robusta, segura y mantenible.</p>
+                        <h4>Competencias de la unidad:</h4>
+                        <ul>
+                            <li>Identificar frameworks backend, frontend y de integración para arquitectura orientada a servicios.</li>
+                            <li>Aplicar un proceso estructurado de desarrollo de API desde el análisis hasta el monitoreo.</li>
+                            <li>Usar buenas prácticas de seguridad, documentación y versionado.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="unit-card large">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-layer-group icon-share"></i>Frameworks en aplicaciones orientadas a servicios</h3>
+                        <p>Un framework es un conjunto de herramientas y convenciones que acelera el desarrollo. En arquitecturas orientadas a servicios permite crear módulos desacoplados que se comunican por APIs.</p>
+                        <ul>
+                            <li><strong>Backend:</strong> Express.js y NestJS (Node.js), Laravel (PHP), Spring Boot (Java), FastAPI y Django REST (Python).</li>
+                            <li><strong>Frontend consumidor de servicios:</strong> React, Angular y Vue para integrar APIs REST/GraphQL.</li>
+                            <li><strong>Integración y mensajería:</strong> gRPC para alto rendimiento, RabbitMQ/Kafka para comunicación asíncrona.</li>
+                            <li><strong>Documentación y pruebas:</strong> OpenAPI/Swagger, Postman y Newman.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="unit-card code-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-code icon-code"></i>Ejemplo: API REST con Express</h3>
+                        <pre><code>const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.get('/api/cursos', (req, res) => {
+  res.json([{ id: 1, nombre: 'DWOS' }]);
+});
+
+app.post('/api/cursos', (req, res) => {
+  const nuevoCurso = req.body;
+  res.status(201).json(nuevoCurso);
+});
+
+app.listen(3000, () => {
+  console.log('API activa en puerto 3000');
+});</code></pre>
+                    </div>
+                </div>
+
+                <div class="unit-card large">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-diagram-project icon-map"></i>Proceso de desarrollo de una API</h3>
+                        <p>El desarrollo de APIs sigue un ciclo de vida para asegurar calidad, escalabilidad y facilidad de integración con otros sistemas.</p>
+                        <ol>
+                            <li><strong>Análisis de requisitos:</strong> identificar consumidores, casos de uso y reglas del negocio.</li>
+                            <li><strong>Diseño:</strong> definir recursos, endpoints, métodos HTTP, estructura JSON y códigos de estado.</li>
+                            <li><strong>Seguridad:</strong> aplicar autenticación/autorización (JWT, OAuth2), validación y rate limiting.</li>
+                            <li><strong>Implementación:</strong> construir controladores, servicios y acceso a datos.</li>
+                            <li><strong>Pruebas:</strong> unitarias, integración y contratos de API.</li>
+                            <li><strong>Documentación y versionado:</strong> OpenAPI, ejemplos, versión v1/v2 y estrategia de deprecación.</li>
+                            <li><strong>Despliegue y monitoreo:</strong> CI/CD, logs, métricas, alertas y observabilidad.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="unit-card code-card medium">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-shield-alt icon-laptop"></i>Ejemplo: Seguridad básica con JWT (pseudo)</h3>
+                        <pre><code>// Middleware de autenticación
+function verifyToken(req, res, next) {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Token requerido' });
+
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = payload;
+    next();
+  } catch {
+    res.status(403).json({ error: 'Token inválido' });
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="unit-card wide">
+                    <div class="unit-card-content">
+                        <h3><i class="fas fa-check-circle icon-check"></i>Buenas prácticas para APIs orientadas a servicios</h3>
+                        <ul>
+                            <li>Usar nombres de recursos consistentes y rutas claras (ejemplo: <strong>/api/usuarios</strong>).</li>
+                            <li>Responder con códigos HTTP correctos (200, 201, 400, 401, 404, 500).</li>
+                            <li>Validar entradas en cada endpoint para evitar datos corruptos o inseguros.</li>
+                            <li>Documentar ejemplos de request/response para facilitar integración de clientes.</li>
+                            <li>Versionar la API para mantener compatibilidad con sistemas existentes.</li>
+                        </ul>
+                        <h4>Recursos recomendados:</h4>
+                        <ul>
+                            <li><a href="https://swagger.io/specification/" target="_blank" rel="noopener noreferrer">OpenAPI Specification</a></li>
+                            <li><a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">REST API Tutorial</a></li>
+                            <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
